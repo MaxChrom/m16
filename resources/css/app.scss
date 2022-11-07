@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Noto+Serif+Display:wght@200;400;700&display=swap");
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    position: relative;
+    color: white;
+    transition: 1s;
+    .closing-button {
+        transition: 1s;
+        display: flex;
+        align-items: center;
+        font-size: 50px;
+        height: 80px;
+        width: 50px;
+        position: relative;
+        left: 180px;
+        top: 150px;
+        background-color: #163838;
+
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        cursor: pointer;
+
+        span {
+            transition: 1s;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    width: 400px;
+    background-color: #163838;
+    font-family: "Cutive Mono", monospace;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    img {
+        width: 30%;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 15px auto;
+
+        a {
+            transition: 1s;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
+            &:hover {
+                opacity: 0.8;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.content {
+    background-image: url("/img/mi6-seal-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+
+    background-color: #2b5554;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 3em;
+        font-family: "Noto Serif Display", serif;
+        font-weight: lighter;
+    }
+}
+
+.hiddenBar {
+    position: relative;
+    width: 0px;
+
+    .closing-button {
+        left: 20px;
+
+        justify-content: center;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+
+        span {
+            rotate: 180deg;
+        }
+    }
+
+    nav {
+        a {
+            position: relative;
+
+            font-size: 0px;
+        }
+    }
+}
