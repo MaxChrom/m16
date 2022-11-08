@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\PeopleController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ Route::get('/', function () {
 Route::get('/people-of-interest', [PeopleController::class, 'index']);
 Route::get('/people-of-interest/api', [PeopleController::class, 'api']);
 Route::get('/people-of-interest/{id}', [PeopleController::class, 'show'])->name('person');
+Route::get('/mission/{id}', [MissionController::class, 'show']);
