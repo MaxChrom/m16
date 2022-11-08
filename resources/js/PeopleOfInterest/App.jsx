@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import StatusFilter from "./StatusFilter";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import MissionEditForm from "./MissionEditForm";
+import PeoplePage from "./PeoplePage";
 
 export default function App() {
     const [searchFor, setSearchFor] = useState();
@@ -13,7 +16,7 @@ export default function App() {
         const data = await response.json();
 
         setPeople(data);
-        console.log(people);
+        // console.log(people);
     };
     useEffect(() => {
         loadPerson();
@@ -21,22 +24,15 @@ export default function App() {
 
     return (
         <>
-            <div className="search">
-                <input
-                    type="text"
-                    onChange={(e) => setSearchFor(e.target.value)}
-                />
-            </div>
-            <StatusFilter
-                selectedStatus={selectedStatus}
-                setSelectedStatus={setSelectedStatus}
-            />
-
-            {people
-                ? people.map((person) => {
-                      return <div>{person.name}</div>;
-                  })
-                : null}
+            <BrowserRouter>
+                <Routes>
+                    <Route
+                        path="/people-of-interest"
+                        element={<PeoplePage />}
+                    />
+                    <Route path="/mission/:id" element={<MissionEditForm />} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }
