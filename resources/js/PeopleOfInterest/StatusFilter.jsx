@@ -16,10 +16,15 @@ export default function StatusFilter() {
     return (
         <div>
             <div className="status-filter">This is the status filter</div>
-            
-            {statuses ? statuses.map(status => { 
-                return <div className="status__name">{status.name}</div>
-            } : null}
+
+            {
+                statuses ? (
+                    statuses.map(status => {
+                        return <div className="status__name">{status.name}</div>
+                    })
+                ) : null
+
+            }
         </div>
     );
 }
