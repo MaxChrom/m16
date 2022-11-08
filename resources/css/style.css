@@ -69,3 +69,6 @@ div.nav-bar {
 .nav-bar.hidden .visibility-toggle {
     left: 0;
 }
+.status-filter__status--selected {
+    background-color:red;
+}
