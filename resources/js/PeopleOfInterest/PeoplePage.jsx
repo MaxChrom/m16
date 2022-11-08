@@ -1,7 +1,13 @@
 import React from "react";
 import StatusFilter from "./StatusFilter";
+import { Link } from "react-router-dom";
 
-export default function PeoplePage() {
+export default function PeoplePage({
+    selectedStatus,
+    setSelectedStatus,
+    people,
+    setPeople,
+}) {
     return (
         <div>
             <div className="search">

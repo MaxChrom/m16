@@ -10,19 +10,3 @@
         </div>
     </div>
    @endsection
-
-   {{-- @section('head')
-       <p>Head</p>
-   @endsection
-
-    @section('body')
-       <p>Head</p>
-   @endsection
-
-    @section('left-arm')
-       <p>Head</p>
-   @endsection
-
-    @section('right-arm')
-       <p>Head</p> --}}
-   {{-- @endsection --}}

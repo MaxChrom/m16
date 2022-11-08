@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import StatusFilter from "./StatusFilter";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import MissionEditForm from "./MissionEditForm";
 import PeoplePage from "./PeoplePage";
@@ -28,7 +27,14 @@ export default function App() {
                 <Routes>
                     <Route
                         path="/people-of-interest"
-                        element={<PeoplePage />}
+                        element={
+                            <PeoplePage
+                                selectedStatus={selectedStatus}
+                                setSelectedStatus={setSelectedStatus}
+                                people={people}
+                                setPeople={setPeople}
+                            />
+                        }
                     />
                     <Route path="/mission/:id" element={<MissionEditForm />} />
                 </Routes>

@@ -1,15 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function MissionEditForm() {
-    const { missionId } = useParams();
-
-    console.log(missionId);
+    const { id } = useParams();
 
     const [data, setData] = useState({
-        name: null,
-        year: null,
-        outcome: null,
+        name: "",
+        year: undefined,
+        outcome: undefined,
     });
 
     const handleChange = (event) => {
