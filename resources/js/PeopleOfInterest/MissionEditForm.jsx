@@ -1,15 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function MissionEditForm() {
-    const { missionId } = useParams();
+    const { id } = useParams();
 
-    console.log(missionId);
+    // console.log(missionId);
 
     const [data, setData] = useState({
-        name: null,
-        year: null,
-        outcome: null,
+        name: "",
+        year: undefined,
+        outcome: undefined,
     });
 
     const handleChange = (event) => {
@@ -22,6 +23,7 @@ export default function MissionEditForm() {
     };
     return (
         <form action="" method="post">
+            {console.log(id)}
             <input
                 type="text"
                 name="name"
