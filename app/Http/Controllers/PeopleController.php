@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mission;
 use Illuminate\Http\Request;
 use App\Models\Person;
 
@@ -18,9 +19,15 @@ class PeopleController extends Controller
         return view('person-of-interest', compact('personId'));
     }
 
-    public function api()
+    public function api(Request $request)
     {
-        $api = Person::get();
-        return ($api);
+        $status = $request->input('status');
+
+        if ($status) {
+            $peopleOfInterest = Person::with('missions')->where('status_id', $status)->get();
+        } else {
+            $peopleOfInterest = Person::with('missions')->get();
+        }
+        return $peopleOfInterest;
     }
 }
