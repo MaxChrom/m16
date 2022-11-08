@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/people-of-interest', [PeopleController::class, 'index']);
+Route::get('/people-of-interest/api', [PeopleController::class, 'api']);
+Route::get('/people-of-interest/{id}', [PeopleController::class, 'show'])->name('person');
