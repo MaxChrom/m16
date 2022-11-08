@@ -15,6 +15,7 @@ div.content {
     background-size: contain;
     font-family: 'Noto Serif Display';
     flex-grow: 1;
+    padding: 10rem;
 }
 
 div.nav-bar {

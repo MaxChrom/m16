@@ -4,14 +4,15 @@ export default function StatusFilter() {
     const [statuses, setStatuses] = useState([]);
 
     const loadStatuses = async () => {
-        const res = await fetch("https://www.mi6.test/api/statuses");
+        const res = await fetch("http://www.mi6.test/api/statuses");
         const data = await res.json();
+        console.log(data)
         setStatuses(data);
     };
 
     useEffect(() => {
         loadStatuses();
-    });
+    }, []);
 
     return (
         <div>
