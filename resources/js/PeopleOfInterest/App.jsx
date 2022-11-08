@@ -5,17 +5,19 @@ export default function App() {
     const [searchFor, setSearchFor] = useState();
     const [selectedStatus, setSelectedStatus] = useState("");
 
-    console.log(searchFor);
     const loadPerson = async () => {
         const response = await fetch(
             "http://www.mi6.test/people-of-interest/api"
         );
         const data = await response.json();
-        console.log(data);
     };
     useEffect(() => {
         loadPerson();
     }, [searchFor]);
+
+    useEffect(() => {
+        console.log(selectedStatus);
+    }, [selectedStatus]);
 
     return (
         <>
