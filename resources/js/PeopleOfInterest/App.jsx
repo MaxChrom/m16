@@ -4,14 +4,16 @@ import StatusFilter from "./StatusFilter";
 export default function App() {
     const [searchFor, setSearchFor] = useState();
     const [selectedStatus, setSelectedStatus] = useState();
+    const [people, setPeople] = useState([]);
 
-    // console.log(searchFor);
     const loadPerson = async () => {
         const response = await fetch(
             "http://www.mi6.test/people-of-interest/api"
         );
         const data = await response.json();
-        // console.log(data);
+
+        setPeople(data);
+        console.log(people);
     };
     useEffect(() => {
         loadPerson();
@@ -29,9 +31,12 @@ export default function App() {
                 selectedStatus={selectedStatus}
                 setSelectedStatus={setSelectedStatus}
             />
+
+            {people
+                ? people.map((person) => {
+                      return <div>{person.name}</div>;
+                  })
+                : null}
         </>
     );
 }
-
-
-
