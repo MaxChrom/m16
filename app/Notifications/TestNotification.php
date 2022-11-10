@@ -16,9 +16,9 @@ class TestNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($test_from_controller)
     {
-        //
+        $this->test = $test_from_controller;
     }
 
     /**
@@ -29,7 +29,7 @@ class TestNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -41,9 +41,10 @@ class TestNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            // ->line('The introduction to the notification.')
+            ->line($this->test)
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     /**
@@ -55,7 +56,7 @@ class TestNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'test' => 'It works'
         ];
     }
 }

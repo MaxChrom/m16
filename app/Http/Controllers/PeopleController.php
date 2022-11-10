@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Mail\TestEmail;
 use App\Notifications\TestNotification;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,6 +49,8 @@ class PeopleController extends Controller
     {
         $user = Auth::user(); // auth()->user()
 
-        $user->notify(new TestNotification);
+        $user->notify(new TestNotification('Hello'));
+
+        // Notification::send($user, new TestNotification());
     }
 }
