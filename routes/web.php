@@ -23,3 +23,4 @@ Route::get('/people-of-interest', [PeopleController::class, 'index']);
 Route::get('/people-of-interest/api', [PeopleController::class, 'api']);
 Route::get('/people-of-interest/{id}', [PeopleController::class, 'show'])->name('person');
 Route::get('/mission/{id}', [MissionController::class, 'show']);
+Route::view('/missions/{path?}', 'missions/app')->where('path', '.*')->name('missions.app');

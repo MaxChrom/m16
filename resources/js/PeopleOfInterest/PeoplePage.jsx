@@ -23,22 +23,22 @@ export default function PeoplePage({
 
             {people
                 ? people.map((person) => {
-                      return (
-                          <div>
-                              <div>{person.name}</div>
-                              {person.missions.map((mission) => {
-                                  return (
-                                      <p>
-                                          {mission.name}{" "}
-                                          <Link to={"/mission/" + mission.id}>
-                                              EDIT
-                                          </Link>
-                                      </p>
-                                  );
-                              })}
-                          </div>
-                      );
-                  })
+                    return (
+                        <div>
+                            <div>{person.name}</div>
+                            {person.missions.map((mission) => {
+                                return (
+                                    <p>
+                                        {mission.name}{" "}
+                                        <Link to={"/mission/" + mission.id}>
+                                            EDIT
+                                        </Link>
+                                    </p>
+                                );
+                            })}
+                        </div>
+                    );
+                })
                 : null}
         </div>
     );

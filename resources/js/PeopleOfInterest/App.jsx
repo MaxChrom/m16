@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import MissionEditForm from "./MissionEditForm";
 import PeoplePage from "./PeoplePage";
 
 export default function App() {
@@ -36,7 +35,6 @@ export default function App() {
                             />
                         }
                     />
-                    <Route path="/mission/:id" element={<MissionEditForm />} />
                 </Routes>
             </BrowserRouter>
         </>
