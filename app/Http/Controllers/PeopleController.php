@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Mission;
 use Illuminate\Http\Request;
 use App\Models\Person;
+use App\Mail\TestEmail;
+use App\Notifications\TestNotification;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class PeopleController extends Controller
 {
     public function index()
     {
+        // dd(Auth::user());
         $peopleOfInterest = Person::get();
         return view('people-of-interest', compact('peopleOfInterest'));
     }
@@ -28,5 +33,21 @@ class PeopleController extends Controller
             $peopleOfInterest = Person::with('missions')->get();
         }
         return $peopleOfInterest;
+    }
+
+    public function sendTestEmail()
+    {
+        $data = "this is a hardcoded string data";
+        Mail::to("test@email.com")
+            //->cc('test2@email.com)
+            //->bcc('test3@email.com)
+            ->send(new TestEmail($data));
+    }
+
+    public function sendTestNotification()
+    {
+        $user = Auth::user(); // auth()->user()
+
+        $user->notify(new TestNotification);
     }
 }
